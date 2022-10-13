@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
 from models.base_model import BaseModel, Base
-from models import storage_type
+from models import place_amenity
 from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 
 
 class Amenity(BaseModel, Base):
@@ -10,5 +11,4 @@ class Amenity(BaseModel, Base):
     __tablename__ = 'amenities'
     if storage_type == 'db':
         name = Column(String(128), nullable=False)
-    else:
-        name = ""
+    place_amenities = relationship("Place", secondary=place_amenity)
