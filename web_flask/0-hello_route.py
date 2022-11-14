@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def index():
+    '''home page display'''
     return 'Hello HBNB!'
 
 
